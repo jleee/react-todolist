@@ -1,0 +1,27 @@
+body {
+    background: #F6F9FC;
+    color: #223D61;
+    margin: 30px 0px;
+}
+
+hr {
+    border-top: 1px solid #EBF1F8;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+label {
+    font-size: 20px;
+    font-weight: normal;
+    padding-left: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+.txt-strike {
+    text-decoration: line-through;
+}
