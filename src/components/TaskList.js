@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import 'styles/TaskList.css';
 
 export default class TaskList extends Component {
-  constructor() {
-    super();
-  }
-  
   removeTask(id) {
     this.props.removeTask(id);
   }
