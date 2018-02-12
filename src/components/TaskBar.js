@@ -25,7 +25,18 @@ export default class TaskBar extends Component {
     return (
       <div className="col-md-6 col-centered">
         <div className="task-bar">
-          <input type="text" name="task-bar"  value={this.state.value} onChange={this.handleChange} placeholder="Add new task"/>
+          <input 
+            type="text" 
+            name="task-bar"  
+            value={this.state.value} 
+            onKeyPress={e => {
+              if(e.key === 'Enter') {
+                this.addTask(this.state.value)
+              }
+            }}
+            onChange={this.handleChange} 
+            placeholder="Add new task"
+          />
           <button id="task-bar-btn" onClick={() => this.addTask(this.state.value)}>Add</button>
         </div>
       </div>
