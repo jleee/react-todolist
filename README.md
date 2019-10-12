@@ -1,5 +1,9 @@
 # React To Do List
-This project was created in order to learn and better understand the basics of React.
+Simple to do list app built with React
+
+## Features
+- Ability to add or remove tasks
+- Tasks are saved within the browser's local storage
 
 ## See this simple app in action!
 ```
