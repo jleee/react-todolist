@@ -22,7 +22,6 @@ class TaskBar extends Component {
 
   render() {
     const { taskText } = this.state;
-    const { addTask } = this.props;
     return (
       <div className="col-md-6 col-centered">
         <div className="task-bar">
@@ -34,7 +33,7 @@ class TaskBar extends Component {
             onChange={this.handleInputValue} 
             placeholder="Add new task"
           />
-          <button id="task-bar-btn" onClick={(event) => this.addTask(taskText)}>Add</button>
+          <button id="task-bar-btn" onClick={() => this.addTask(taskText)}>Add</button>
         </div>
       </div>
     );
