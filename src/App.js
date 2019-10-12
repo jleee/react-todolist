@@ -4,54 +4,56 @@ import TaskBar from 'components/TaskBar';
 import TaskList from 'components/TaskList';
 import 'styles/App.css';
 
-export default class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      todos: [
-        {id: 0, text: 'Buy birthday present for friend'},
-        {id: 1, text: 'Pick up groceries at supermarket'},
-        {id: 2, text: 'Make chicken noodle soup'},
-        {id: 3, text: 'Clean up house'}
-      ],
-      nextId: 4
-    }
-
+      tasks: [],
+    };
     this.addTask = this.addTask.bind(this);
     this.removeTask = this.removeTask.bind(this);
   }
 
-  addTask(taskText) {
-    let todos = this.state.todos.slice();
-    todos.push({id: this.state.nextId, text: taskText});
-    this.setState({
-      todos: todos,
-      nextId: ++this.state.nextId
-    });
+  componentDidMount() {
+    const tasksItem = JSON.parse(localStorage.getItem('tasks'));
+    tasksItem && this.setState({ tasks: tasksItem });
   }
 
-  removeTask(id) {
-    this.setState({
-      todos: this.state.todos.filter((todo, index) => todo.id !== id)
-    });
+  addTask(text) {
+    const { tasks } = this.state;
+    if (text.length > 0) {
+      tasks.push({ text: text });
+      this.setState({ tasks: tasks });
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+  }
+
+  removeTask(text, event) {
+    const tasksItem = JSON.parse(localStorage.getItem('tasks'));
+    const currentTask = event.currentTarget.parentElement;  
+    const currentTaskKey = currentTask.getAttribute('data-key');
+    const updatedTasks = tasksItem.filter((task, index) => index != currentTaskKey);
+
+    this.setState({ tasks: updatedTasks });
+    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+  }
+
+  renderTasks() {
+    const tasksItem = JSON.parse(localStorage.getItem('tasks'));
+    return tasksItem && tasksItem.map((task, index) => <TaskList text={task.text} key={index} index={index} removeTask={this.removeTask} />);
   }
 
   render() {
-    const tasks = this.state.todos.map((todo) => {
-      return <TaskList todo={todo} key={todo.id} id={todo.id} removeTask={this.removeTask}/>
-    });
-    
     return (
       <div className="App">
         <div className="container">
           <div className="row">
             <Header/>
-            <TaskBar taskText="" addTask={this.addTask}/>
+            <TaskBar addTask={this.addTask}/>
             <div className="col-md-6 col-centered">
               <div className="task-list">
                 <p className="status"><span className="circle"></span> Task List</p>  
-                {tasks}
+                {this.renderTasks()}
               </div>
             </div>
           </div>
@@ -60,3 +62,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default App;

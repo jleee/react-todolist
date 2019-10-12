@@ -1,45 +1,44 @@
 import React, { Component } from 'react';
 import 'styles/TaskBar.css';
 
-export default class TaskBar extends Component {
+class TaskBar extends Component {
   constructor(props) {
     super(props);
-  
-    this.state = {value: ''};
-    this.handleChange = this.handleChange.bind(this);
-    this.addTask = this.addTask.bind(this);
+    this.state = { 
+      taskText: '',
+    };
+    this.handleInputValue = this.handleInputValue.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({value: e.target.value});
+  handleInputValue(event) {
+    this.setState({ taskText: event.target.value });
   }
 
-  addTask(task) {
-    if(task.length > 0) {
-      this.props.addTask(task);
-      this.setState({value: ''});
-    }    
+  addTask(taskText) {
+    const { addTask } = this.props;
+    addTask(taskText);
+    this.setState({ taskText: '' });
   }
-  
+
   render() {
+    const { taskText } = this.state;
+    const { addTask } = this.props;
     return (
       <div className="col-md-6 col-centered">
         <div className="task-bar">
           <input 
             type="text" 
             name="task-bar"  
-            value={this.state.value} 
-            onKeyPress={e => {
-              if(e.key === 'Enter') {
-                this.addTask(this.state.value)
-              }
-            }}
-            onChange={this.handleChange} 
+            value={taskText} 
+            onKeyPress={event => event.key === 'Enter' && this.addTask(taskText)}
+            onChange={this.handleInputValue} 
             placeholder="Add new task"
           />
-          <button id="task-bar-btn" onClick={() => this.addTask(this.state.value)}>Add</button>
+          <button id="task-bar-btn" onClick={(event) => this.addTask(taskText)}>Add</button>
         </div>
       </div>
     );
   }
 }
+
+export default TaskBar;
