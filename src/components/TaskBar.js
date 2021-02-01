@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import 'styles/TaskBar.css';
+import '../styles/TaskBar.css';
 
 class TaskBar extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       taskText: '',
     };
     this.handleInputValue = this.handleInputValue.bind(this);
@@ -25,15 +25,17 @@ class TaskBar extends Component {
     return (
       <div className="col-md-6 col-centered">
         <div className="task-bar">
-          <input 
-            type="text" 
-            name="task-bar"  
-            value={taskText} 
-            onKeyPress={event => event.key === 'Enter' && this.addTask(taskText)}
-            onChange={this.handleInputValue} 
+          <input
+            type="text"
+            name="task-bar"
+            value={taskText}
+            onKeyPress={(event) => event.key === 'Enter' && this.addTask(taskText)}
+            onChange={this.handleInputValue}
             placeholder="Add new task"
           />
-          <button id="task-bar-btn" onClick={() => this.addTask(taskText)}>Add</button>
+          <button id="task-bar-btn" onClick={() => this.addTask(taskText)}>
+            Add
+          </button>
         </div>
       </div>
     );
