@@ -12,7 +12,7 @@ class App extends Component {
     };
     this.addTask = this.addTask.bind(this);
     this.removeTask = this.removeTask.bind(this);
-    this.completeTask = this.completeTask.bind(this);
+    this.updateTask = this.updateTask.bind(this);
   }
 
   componentDidMount() {
@@ -38,11 +38,11 @@ class App extends Component {
     localStorage.setItem('tasks', JSON.stringify(updatedTasks));
   }
 
-  completeTask(event) {
+  updateTask(event) {
     const { tasks } = this.state;
     const currentTaskKey = event.currentTarget.parentElement.getAttribute('data-key');
     const updatedTasks = tasks.map((task, index) => {
-      if (index == currentTaskKey) task.isComplete = true;
+      if (index == currentTaskKey) task.isComplete = event.target.checked;
       return task;
     });
 
@@ -58,7 +58,7 @@ class App extends Component {
         isComplete={task.isComplete}
         key={index}
         index={index}
-        completeTask={this.completeTask}
+        updateTask={this.updateTask}
         removeTask={this.removeTask}
       />
     ));
