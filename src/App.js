@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Header from 'components/Header';
-import TaskBar from 'components/TaskBar';
-import TaskList from 'components/TaskList';
-import 'styles/App.css';
+import Header from './components/Header';
+import TaskBar from './components/TaskBar';
+import TaskList from './components/TaskList';
+import './styles/App.css';
 
 class App extends Component {
   constructor(props) {
@@ -12,6 +12,7 @@ class App extends Component {
     };
     this.addTask = this.addTask.bind(this);
     this.removeTask = this.removeTask.bind(this);
+    this.completeTask = this.completeTask.bind(this);
   }
 
   componentDidMount() {
@@ -22,25 +23,45 @@ class App extends Component {
   addTask(text) {
     const { tasks } = this.state;
     if (text.length > 0) {
-      tasks.push({ text: text });
+      tasks.push({ text: text, isComplete: false });
       this.setState({ tasks: tasks });
       localStorage.setItem('tasks', JSON.stringify(tasks));
     }
   }
 
-  removeTask(text, event) {
-    const tasksItem = JSON.parse(localStorage.getItem('tasks'));
-    const currentTask = event.currentTarget.parentElement;  
-    const currentTaskKey = currentTask.getAttribute('data-key');
-    const updatedTasks = tasksItem.filter((task, index) => index != currentTaskKey);
+  removeTask(event) {
+    const { tasks } = this.state;
+    const currentTaskKey = event.currentTarget.parentElement.getAttribute('data-key');
+    const updatedTasks = tasks.filter((task, index) => index != currentTaskKey);
+
+    this.setState({ tasks: updatedTasks });
+    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+  }
+
+  completeTask(event) {
+    const { tasks } = this.state;
+    const currentTaskKey = event.currentTarget.parentElement.getAttribute('data-key');
+    const updatedTasks = tasks.map((task, index) => {
+      if (index == currentTaskKey) task.isComplete = true;
+      return task;
+    });
 
     this.setState({ tasks: updatedTasks });
     localStorage.setItem('tasks', JSON.stringify(updatedTasks));
   }
 
   renderTasks() {
-    const tasksItem = JSON.parse(localStorage.getItem('tasks'));
-    return tasksItem && tasksItem.map((task, index) => <TaskList text={task.text} key={index} index={index} removeTask={this.removeTask} />);
+    const { tasks } = this.state;
+    return tasks.map((task, index) => (
+      <TaskList
+        text={task.text}
+        isComplete={task.isComplete}
+        key={index}
+        index={index}
+        completeTask={this.completeTask}
+        removeTask={this.removeTask}
+      />
+    ));
   }
 
   render() {
@@ -48,11 +69,13 @@ class App extends Component {
       <div className="App">
         <div className="container">
           <div className="row">
-            <Header/>
-            <TaskBar addTask={this.addTask}/>
+            <Header />
+            <TaskBar addTask={this.addTask} />
             <div className="col-md-6 col-centered">
               <div className="task-list">
-                <p className="status"><span className="circle"></span> Task List</p>  
+                <p className="status">
+                  <span className="circle"></span> Task List
+                </p>
                 {this.renderTasks()}
               </div>
             </div>

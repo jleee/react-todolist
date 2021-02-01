@@ -1,11 +1,14 @@
 import React from 'react';
-import 'styles/TaskList.css';
+import '../styles/TaskList.css';
 
-const TaskList = ({ text, index, removeTask}) => (
-  <div className="checkbox" data-key={index}>
-    <input type="checkbox" className="checkbox-round"/><label>{text}</label>
-    <button className="remove-btn" onClick={(event) => removeTask(text, event)}></button>                  
-  </div>
-);
+const TaskList = ({ text, isComplete, index, removeTask, completeTask }) => {
+  return (
+    <div className="checkbox" data-key={index}>
+      <input type="checkbox" checked={isComplete} className="checkbox-round" onChange={completeTask} />
+      <label>{text}</label>
+      <button className="remove-btn" onClick={removeTask}></button>
+    </div>
+  );
+};
 
 export default TaskList;
