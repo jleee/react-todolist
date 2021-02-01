@@ -1,55 +1,55 @@
 .task-bar {
-	margin: 20px 0px;		
+  margin: 20px 0px;
 }
 
 .task-bar input {
-	width: 100%;
-	height: 60px;
-	border: 0px;
-	outline: none;
-	border-radius: 4px;
-	-webkit-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.1);
-	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.1);			
-	padding: 20px 20px 18px;
-	font-size: 20px;
-	-webkit-transition: all ease 300ms;	
-	transition: all ease 300ms;
+  width: 100%;
+  height: 60px;
+  border: 0px;
+  outline: none;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.1);
+  padding: 20px 20px 18px;
+  font-size: 20px;
+  -webkit-transition: all ease 300ms;
+  transition: all ease 300ms;
 }
 
 .task-bar input:focus {
-	-webkit-box-shadow: 0 2px 17px rgba(0, 0, 0, 0.125);
-	box-shadow: 0 2px 17px rgba(0, 0, 0, 0.125);
+  -webkit-box-shadow: 0 2px 17px rgba(0, 0, 0, 0.125);
+  box-shadow: 0 2px 17px rgba(0, 0, 0, 0.125);
 }
 
 .task-bar input::-webkit-input-placeholder, /* Chrome/Opera/Safari */
 .task-bar input::-moz-placeholder, /* Firefox 19+ */
 .task-bar input:-moz-placeholder, /* Firefox 18- */
-.task-bar input:-ms-input-placeholder, /* IE 10+ */ { 
-  color: #CCC;
+.task-bar input:-ms-input-placeholder /* IE 10+ */ {
+  color: #ccc;
 }
 
 #task-bar-btn {
-	position: absolute;
-	right: 15px;
-	top: 0px;
-	padding: 20px;
-	font-weight: bold;
-	cursor: pointer;
-	color: #FFF;
-	background: -webkit-gradient(linear, left top, left bottom, from(#3AD787), to(#2ACE7A));
-	background: linear-gradient(to bottom, #3AD787, #2ACE7A);			
-	border: 0px;
-	border-top-right-radius: 4px;
-	border-bottom-right-radius: 4px;
-	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 2px 15px rgba(58, 215, 135, 0.3);
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 2px 15px rgba(58, 215, 135, 0.3);
+  position: absolute;
+  right: 15px;
+  top: 0px;
+  padding: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
+  background: -webkit-gradient(linear, left top, left bottom, from(#3ad787), to(#2ace7a));
+  background: linear-gradient(to bottom, #3ad787, #2ace7a);
+  border: 0px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 2px 15px rgba(58, 215, 135, 0.3);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 2px 15px rgba(58, 215, 135, 0.3);
 }
 
 #task-bar-btn:focus {
-	outline: none;
+  outline: none;
 }
 
 #task-bar-btn:hover {
-	background: -webkit-gradient(linear, left top, left bottom, from(#4FDB94), to(#32D582));
-	background: linear-gradient(to bottom, #4FDB94, #32D582);
+  background: -webkit-gradient(linear, left top, left bottom, from(#4fdb94), to(#32d582));
+  background: linear-gradient(to bottom, #4fdb94, #32d582);
 }

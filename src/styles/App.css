@@ -1,23 +1,23 @@
 body {
-    background: #F6F9FC;
-    color: #223D61;
-    margin: 30px 0px;
+  background: #f6f9fc;
+  color: #223d61;
+  margin: 30px 0px;
 }
 
 hr {
-    border-top: 1px solid #EBF1F8;
-    margin-left: -20px;
-    margin-right: -20px;
+  border-top: 1px solid #ebf1f8;
+  margin-left: -20px;
+  margin-right: -20px;
 }
 
 label {
-    font-size: 20px;
-    font-weight: normal;
-    padding-left: 10px !important;
-    margin-bottom: 10px !important;
+  font-size: 20px;
+  font-weight: normal;
+  padding-left: 10px !important;
+  margin-bottom: 10px !important;
 }
 
 .col-centered {
-    float: none;
-    margin: 0 auto;
+  float: none;
+  margin: 0 auto;
 }
