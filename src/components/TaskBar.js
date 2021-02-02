@@ -33,7 +33,7 @@ class TaskBar extends Component {
             onChange={this.handleInputValue}
             placeholder="Add new task"
           />
-          <button id="task-bar-btn" onClick={() => this.addTask(taskText)}>
+          <button className="btn-task-bar btn btn-green" onClick={() => this.addTask(taskText)}>
             Add
           </button>
         </div>

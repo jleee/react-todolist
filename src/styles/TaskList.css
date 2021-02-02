@@ -4,6 +4,7 @@
   box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
   background: #fff;
   border-radius: 4px;
+  transition: 0.2s ease-in-out;
 }
 
 .status {
@@ -12,16 +13,20 @@
   font-weight: bold;
 }
 
-.status .circle {
-  background: #3ad787;
-}
-
 .circle {
   display: inline-block;
   width: 10px;
   height: 10px;
   border-radius: 35px;
   margin-right: 3px;
+}
+
+.circle-green {
+  background: #3ad787;
+}
+
+.circle-red {
+  background: #ee5253;
 }
 
 .checkbox {
