@@ -31,6 +31,7 @@ class TaskBar extends Component {
             value={taskText}
             onKeyPress={(event) => event.key === 'Enter' && this.addTask(taskText)}
             onChange={this.handleInputValue}
+            ref={(input) => input && input.focus()}
             placeholder="Add new task"
           />
           <button className="btn-task-bar btn btn-green" onClick={() => this.addTask(taskText)}>
