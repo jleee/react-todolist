@@ -32,6 +32,7 @@
 .checkbox {
   position: relative;
   padding: 0px 20px;
+  word-break: break-all;
 }
 
 .checkbox-round {
