@@ -29,6 +29,10 @@
   background: #ee5253;
 }
 
+label:hover {
+  cursor: default;
+}
+
 .checkbox {
   position: relative;
   padding: 0px 20px;

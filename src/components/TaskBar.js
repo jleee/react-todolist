@@ -24,7 +24,7 @@ class TaskBar extends Component {
     const { taskText } = this.state;
     return (
       <div className="col-md-6 col-centered">
-        <div className="task-bar">
+        <div className="task-bar animate animate-fade-down">
           <input
             type="text"
             name="task-bar"

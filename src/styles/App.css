@@ -44,9 +44,6 @@ label {
 }
 
 .btn-task-bar {
-  position: absolute;
-  right: 15px;
-  top: 0px;
   border-radius: 0 4px 4px 0;
 }
 
@@ -65,4 +62,26 @@ label {
   visibility: visible;
   transition: 0.3s ease-in-out;
   transform: translateY(0);
+}
+
+.animate {
+  animation-fill-mode: both;
+  animation-delay: 0.3s;
+  animation-duration: 0.3s !important;
+  transition-duration: 0.3s !important;
+}
+
+.animate-fade-down {
+  animation: fadeDown;
+}
+
+@keyframes fadeDown {
+  from {
+    transform: translateY(-15px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

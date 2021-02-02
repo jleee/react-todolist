@@ -86,7 +86,7 @@ class App extends Component {
             <Header />
             <TaskBar addTask={this.addTask} />
             <div className="col-md-6 col-centered">
-              <div className="task-list">
+              <div className="task-list animate animate-fade-down">
                 <p className="status">
                   <span className={`circle ${taskCompleteStatus}`}></span> Task List
                 </p>

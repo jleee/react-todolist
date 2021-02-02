@@ -22,7 +22,7 @@ const Header = () => {
   const year = date.getFullYear();
 
   return (
-    <div className="col-md-6 col-centered header-date">
+    <div className="col-md-6 col-centered header-date animate animate-fade-down">
       <h1>
         <strong>Today</strong>
       </h1>
