@@ -7,7 +7,9 @@
   margin-bottom: 10px;
 }
 
-.header-date h4 {
-  color: #6772e5;
+.header-date h2 {
+  font-size: 18px;
+  color: #5c66d5;
+  margin-top: 0;
   margin-bottom: 45px;
 }

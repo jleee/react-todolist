@@ -23,12 +23,14 @@ const Header = () => {
 
   return (
     <div className="col-md-6 col-centered header-date animate animate-fade-down">
-      <h1>
-        <strong>Today</strong>
-      </h1>
-      <h4>
-        {month} {day}, {year}
-      </h4>
+      <header>
+        <h1>
+          <strong>Today</strong>
+        </h1>
+        <h2>
+          {month} {day}, {year}
+        </h2>
+      </header>
     </div>
   );
 };

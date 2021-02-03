@@ -33,6 +33,7 @@ class TaskBar extends Component {
             onChange={this.handleInputValue}
             ref={(input) => input?.focus()}
             placeholder="Add new task"
+            aria-label="Add a new task"
           />
           <button className="btn-task-bar btn btn-green" onClick={() => this.addTask(taskText)}>
             Add
